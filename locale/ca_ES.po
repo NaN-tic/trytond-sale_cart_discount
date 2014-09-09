@@ -1,0 +1,11 @@
+# 
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "field:sale.cart,discount:"
+msgid "Discount"
+msgstr "Descompte"
+
+msgctxt "field:sale.cart,gross_unit_price:"
+msgid "Gross Price"
+msgstr "Preu brut"
