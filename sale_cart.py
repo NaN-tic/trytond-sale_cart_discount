@@ -32,10 +32,10 @@ class SaleCart:
         cls.unit_price.digits = (20, DIGITS + DISCOUNT_DIGITS)
         if 'discount' not in cls.product.on_change:
             cls.product.on_change.add('discount')
-        if 'discount' not in cls.total_amount.on_change_with:
-            cls.total_amount.on_change_with.add('discount')
-        if 'gross_unit_price' not in cls.total_amount.on_change_with:
-            cls.total_amount.on_change_with.add('gross_unit_price')
+        if 'discount' not in cls.untaxed_amount.on_change_with:
+            cls.untaxed_amount.on_change_with.add('discount')
+        if 'gross_unit_price' not in cls.untaxed_amount.on_change_with:
+            cls.untaxed_amount.on_change_with.add('gross_unit_price')
         if 'discount' not in cls.quantity.on_change:
             cls.quantity.on_change.add('discount')
 
