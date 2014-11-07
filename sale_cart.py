@@ -1,14 +1,14 @@
-#This file is part of sale_cart_discount module for Tryton.
-#The COPYRIGHT file at the top level of this repository contains
-#the full copyright notices and license terms.
+# This file is part of sale_cart_discount module for Tryton.
+# The COPYRIGHT file at the top level of this repository contains
+# the full copyright notices and license terms.
 from decimal import Decimal
 from trytond.model import fields
 from trytond.pool import Pool, PoolMeta
 from trytond.pyson import Eval
 from trytond.transaction import Transaction
-from trytond.config import CONFIG
-DIGITS = int(CONFIG.get('unit_price_digits', 4))
-DISCOUNT_DIGITS = int(CONFIG.get('discount_digits', 4))
+from trytond.config import config
+DIGITS = int(config.get('digits', 'unit_price_digits'))
+DISCOUNT_DIGITS = int(config.get('digits', 'discount_digits'))
 
 __all__ = ['SaleCart']
 __metaclass__ = PoolMeta
