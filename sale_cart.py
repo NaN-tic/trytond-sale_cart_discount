@@ -86,3 +86,14 @@ class SaleCart:
         if self.unit_price:
             self.gross_unit_price = self.unit_price
             self.update_prices()
+
+    @classmethod
+    def _sale_line_data(cls, cart):
+        d = super(SaleCart, cls)._sale_line_data(cart)
+        d['discount'] = cart.discount
+        return d
+
+    @classmethod
+    def _sale_line(cls, line, data):
+        super(SaleCart, cls)._sale_line(line, data)
+        line.discount = data.get('discount', 0)
