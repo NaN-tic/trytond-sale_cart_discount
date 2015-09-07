@@ -61,11 +61,11 @@ class SaleCart:
             'unit_price': unit_price,
             }
 
-    @fields.depends('gross_unit_price', 'discount')
+    @fields.depends('gross_unit_price', 'discount', 'product')
     def on_change_gross_unit_price(self):
         return self.update_prices()
 
-    @fields.depends('gross_unit_price', 'discount')
+    @fields.depends('gross_unit_price', 'discount', 'product')
     def on_change_discount(self):
         return self.update_prices()
 
