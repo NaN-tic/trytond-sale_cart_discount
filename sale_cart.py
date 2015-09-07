@@ -97,3 +97,8 @@ class SaleCart:
             self.gross_unit_price = res['unit_price']
             res.update(self.update_prices())
         return res
+
+    def get_sale_line(self, sale):
+        line = super(SaleCart, self).get_sale_line(sale)
+        line.discount = self.discount # force discount value
+        return line
