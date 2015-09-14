@@ -9,3 +9,7 @@ msgstr "Descuento"
 msgctxt "field:sale.cart,gross_unit_price:"
 msgid "Gross Price"
 msgstr "Precio bruto"
+
+msgctxt "view:sale.cart:"
+msgid "%"
+msgstr "%"
