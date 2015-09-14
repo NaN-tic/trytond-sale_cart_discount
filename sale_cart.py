@@ -60,11 +60,11 @@ class SaleCart:
         self.gross_unit_price = gross_unit_price
         self.unit_price = unit_price
 
-    @fields.depends('gross_unit_price', 'discount')
+    @fields.depends('gross_unit_price', 'discount', 'product')
     def on_change_gross_unit_price(self):
         return self.update_prices()
 
-    @fields.depends('gross_unit_price', 'discount')
+    @fields.depends('gross_unit_price', 'discount', 'product')
     def on_change_discount(self):
         return self.update_prices()
 
@@ -87,13 +87,8 @@ class SaleCart:
             self.gross_unit_price = self.unit_price
             self.update_prices()
 
-    @classmethod
-    def _sale_line_data(cls, cart):
-        d = super(SaleCart, cls)._sale_line_data(cart)
-        d['discount'] = cart.discount
-        return d
+    def get_sale_line(self, sale):
+        line = super(SaleCart, self).get_sale_line(sale)
+        line.discount = self.discount # force discount value
+        return line
 
-    @classmethod
-    def _sale_line(cls, line, data):
-        super(SaleCart, cls)._sale_line(line, data)
-        line.discount = data.get('discount', 0)
