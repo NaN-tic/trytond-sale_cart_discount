@@ -5,7 +5,7 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
     <data>
         <record model="ir.ui.view" id="sale_cart_view_tree">
             <field name="model">sale.cart</field>
-            <field name="type">tree</field>
+            <field name="type" eval="None"/>
             <field name="inherit" ref="sale_cart.sale_cart_view_tree"/>
             <field name="name">cart_tree</field>
         </record>
