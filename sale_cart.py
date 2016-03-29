@@ -8,7 +8,6 @@ from trytond.pyson import Eval
 from trytond.config import config as config_
 
 __all__ = ['SaleCart']
-__metaclass__ = PoolMeta
 
 STATES = {
     'readonly': (Eval('state') != 'draft')
@@ -18,6 +17,7 @@ DISCOUNT_DIGITS = config_.getint('product', 'discount_decimal', default=4)
 
 
 class SaleCart:
+    __metaclass__ = PoolMeta
     __name__ = 'sale.cart'
     gross_unit_price = fields.Numeric('Gross Price', digits=(16, DIGITS),
         states=STATES)
